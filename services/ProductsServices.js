@@ -15,7 +15,9 @@ const ProductsServices = {
 
   addProduct: async (name) => {
     const check = Validate(name);
+    console.log(check);
     const result = await ProductsModels.addProduct(check);
+  
     return result;
   },
 };

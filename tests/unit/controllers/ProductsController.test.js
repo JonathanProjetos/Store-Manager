@@ -2,6 +2,7 @@ const { expect } = require('chai');
 const { describe, it } = require('mocha');
 const ProductsServices = require('../../../services/ProductsServices');
 const ProductsController = require('../../../controllers/ProductsControllers');
+const Validate = require('../../../middlewares/ProductsError')
 const sinon = require('sinon');
 
 
@@ -119,6 +120,33 @@ describe('Testando a busca de produtos no BD', () => {
       await ProductsController.getProduct(request, response);
       expect(response.json.calledWith(message)).to.be.equal(true);
     });
+  })
+
+  describe('Verifica o retorno da função addProducts', async () => {
+    const Produto = {
+      name: "Cerveja",
+    }
+    
+    const request = {};
+    const response = {};
+
+    before(() => {
+      response.status = sinon.stub().returns(response);
+      response.json = sinon.stub().returns();
+      request.body = Produto;
+      sinon.stub(ProductsServices, 'addProduct').resolves({ Pr });
+      
+    });
+
+    after(() => {
+      ProductsServices.addProduct.restore()
+    });
+
+    it('Verifica se o objeto res da addProduct retorna status 201', async () => {
+        await ProductsServices.addProduct(request, response);
+      expect(response.status.calledWith(201)).to.be.equal(true);
+
+    })
   })
 
 
