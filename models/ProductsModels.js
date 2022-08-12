@@ -10,7 +10,7 @@ const ProductsModels = {
 
   getProduct: async (id) => {
     const sql = 'SELECT * FROM StoreManager.products WHERE id = ?;';
-    const [[result]] = await connection.execute(sql, [id]);
+    const [result] = await connection.execute(sql, [id]);
    // console.log(result);
     return result;
   },

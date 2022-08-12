@@ -17,9 +17,9 @@ describe('Testando a busca de produtos no BD', () => {
       ProductsModels.allProducts.restore()
     });
 
-    it('Verifica se o tipo de dado retornado e um array', async () => {
+    it('Verifica se o tipo de dado retornado e um object', async () => {
       const result = await ProductsServices.allProducts();
-      expect(result).to.be.an('array');
+      expect(result[0]).to.be.an('object');
     });
 
     it('verifica se o array contém dados ', async () => {
@@ -32,7 +32,7 @@ describe('Testando a busca de produtos no BD', () => {
   describe('Verifica o retorno da função getProducts', () => {
 
     before(() => {
-      const returnArray = [[{ id: 1, name: "jhon" }]];
+      const returnArray = [{ id: 1, name: "jhon" }];
       sinon.stub(ProductsModels,'getProduct').resolves(returnArray)
     });
 
@@ -40,9 +40,9 @@ describe('Testando a busca de produtos no BD', () => {
       ProductsModels.getProduct.restore()
     });
 
-    it('Verifica se o tipo de dado retornado e um array', async () => {
+    it('Verifica se o tipo de dado retornado e um object', async () => {
       const result = await ProductsServices.getProduct();
-      expect(result).to.be.an('array');
+      expect(result[0]).to.be.an('object');
     });
 
     it('verifica se o array contém dados no array', async () => {

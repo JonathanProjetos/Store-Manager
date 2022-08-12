@@ -17,6 +17,7 @@ const ProductsControllers = {
     const { id } = req.params;
     try {
       const result = await ProductsServices.getProduct(id);
+      console.log(result);
       if (!result) return res.status(404).json({ message: 'Product not found' });
       return res.status(200).json(result);
     } catch (error) {
