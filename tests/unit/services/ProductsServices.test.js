@@ -33,7 +33,7 @@ describe('Testando a busca de produtos no BD', () => {
 
     before(() => {
       const returnArray = [{ id: 1, name: "jhon" }];
-      sinon.stub(ProductsModels,'getProduct').resolves(returnArray)
+      sinon.stub(ProductsModels, 'getProduct').resolves(returnArray) 
     });
 
     after(() => {
