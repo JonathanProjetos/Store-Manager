@@ -5,6 +5,7 @@ const ProductsControllers = {
     try {
       const result = await ProductsServices.allProducts();
       if (!result) return res.status(404).json({ message: 'Product not found' });
+     // console.log(result);
       return res.status(200).json(result);
     } catch (error) {
       console.log(error);
