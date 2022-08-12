@@ -1,5 +1,5 @@
 const ProductsModels = require('../models/ProductsModels');
-// const Validate = require('../middlewares/ProductsError');
+const Validate = require('../middlewares/ProductsError');
 
 const ProductsServices = {
 
@@ -14,7 +14,10 @@ const ProductsServices = {
   },
 
   addProduct: async (name) => {
-    const result = await ProductsModels.addProduct(name);
+    console.log('1', name);
+    const check = Validate(name);
+    console.log('2', check);
+    const result = await ProductsModels.addProduct(check);
     return result;
   },
 };

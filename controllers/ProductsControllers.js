@@ -8,16 +8,18 @@ const ProductsControllers = {
   },
 
   addProduct: async (req, res) => {
-    const { name } = req.body;
+    const name = req.body;
     const result = await ProductsServices.addProduct(name);
+    if (!result) return res.status(400);
     return res.status(201).json({ id: result.insertId, ...req.body });
   },
   
   getProduct: async (req, res) => {
     const { id } = req.params;
-      const result = await ProductsServices.getProduct(id);
-      if (!result) return res.status(404).json({ message: 'Product not found' });
-      return res.status(200).json(result);
+    const result = await ProductsServices.getProduct(id);
+    if (!result) return res.status(404).json({ message: 'Product not found' });
+    console.log(result);
+    return res.status(200).json(result);
   },
 
 };
