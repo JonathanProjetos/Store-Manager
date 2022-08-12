@@ -7,6 +7,10 @@ ProductsRoute.get('/', async (req, res) => {
   await ProductsControllers.allProducts(req, res);
 });
 
+ProductsRoute.post('/', async (req, res) => { 
+  await ProductsControllers.addProduct(req, res);
+});
+
 ProductsRoute.get('/:id', async (req, res) => { 
   await ProductsControllers.getProduct(req, res);
 });

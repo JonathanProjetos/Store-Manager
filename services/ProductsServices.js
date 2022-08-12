@@ -10,7 +10,11 @@ const ProductsServices = {
 
   getProduct: async (id) => {
     const result = await ProductsModels.getProduct(id);
-    console.log(result);
+    return result;
+  },
+
+  addProduct: async (name) => {
+    const result = await ProductsModels.addProduct(name);
     return result;
   },
 };

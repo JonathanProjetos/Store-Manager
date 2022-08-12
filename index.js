@@ -5,10 +5,10 @@ const ProductRouter = require('./router/ProductsRouter');
 
 app.use('/products', ProductRouter);
 
-app.use((err, _req, res, _next) => {
+/* app.use((err, _req, res, _next) => {
   const { code, message } = err;
   return res.status(code).json(message);
-});
+}); */
 
 // não altere esse arquivo, essa estrutura é necessária para à avaliação do projeto
 
