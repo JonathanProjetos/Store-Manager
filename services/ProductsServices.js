@@ -1,6 +1,8 @@
 const ProductsModels = require('../models/ProductsModels');
+// const Validate = require('../middlewares/ProductsError');
 
 const ProductsServices = {
+
   allProducts: async () => {
     const result = await ProductsModels.allProducts();
     return result;

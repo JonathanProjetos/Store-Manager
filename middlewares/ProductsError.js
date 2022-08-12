@@ -7,6 +7,11 @@ const validate = (name) => {
   });
 
   const { error, value } = products.validate(name);
+  if (error.message === 'Product not found') {
+    error.code = 404;
+    throw error;
+  }
+  return value;
 };
 
 module.exports = validate;
