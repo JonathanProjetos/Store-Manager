@@ -122,11 +122,11 @@ describe('Testando a busca de produtos no BD', () => {
     });
   })
 
-  describe('Verifica o retorno da função addProducts', async () => {
+/*   describe('Verifica o retorno da função addProducts', async () => {
     const Produto = {
       name: "Cerveja",
     }
-    
+
     const request = {};
     const response = {};
 
@@ -147,7 +147,7 @@ describe('Testando a busca de produtos no BD', () => {
       expect(response.status.calledWith(201)).to.be.equal(true);
 
     })
-  })
+  }) */
 
 
 
