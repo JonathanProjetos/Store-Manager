@@ -2,8 +2,10 @@ const app = require('./app');
 require('dotenv').config();
 require('express-async-errors');
 const ProductRouter = require('./router/ProductsRouter');
+const SalesProductsRoute = require('./router/SalesProductsRouter');
 
 app.use('/products', ProductRouter);
+app.use('/sales', SalesProductsRoute);
 
 app.use((err, _req, res, _next) => {
   const [code, message] = err.message.split('|');
