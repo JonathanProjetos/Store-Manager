@@ -18,6 +18,19 @@ const SalesProductsServices = {
     return serialize;
   },
 
+  getSalesProduct: async (id) => {
+    const result = await SalesProductsModels.getSalesProduct(id);
+    const serialize = result.map((d) => {
+      const dadosAlterados = {
+        date: d.date,
+        productId: d.product_id,
+        quantity: d.quantity,
+      };
+      return dadosAlterados;
+    });
+    return serialize;
+  },
+
   addSalesProducts: async (array) => {
     const check = Validate.ValidateSales(array);
     const dados = await SalesProductsModels.addSalesProducts(check);

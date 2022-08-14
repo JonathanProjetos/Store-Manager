@@ -7,6 +7,13 @@ const SalesProductsControllers = {
     return res.status(200).json(result);
   },
 
+  getSalesProduct: async (req, res) => {
+    const { id } = req.params;
+    const result = await SalesProductsServices.getSalesProduct(id);
+    if (result.length === 0) return res.status(404).json({ message: 'Sale not found' });
+    return res.status(200).json(result);
+  }, 
+
   addSalesProducts: async (req, res) => {
     const produtos = req.body;
     const result1 = await SalesProductsServices.addSalesProducts(produtos);
