@@ -57,7 +57,7 @@ describe('Testando a busca de produtos no BD', () => {
 
   });
 
-  describe('Verifica o retorno da função addProducts', async () => {
+  describe('Verifica o retorno da função addProducts', () => {
     const Produto = {
       name: "Belezinha",
     }
