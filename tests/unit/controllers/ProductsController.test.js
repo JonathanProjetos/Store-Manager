@@ -133,7 +133,7 @@ describe('Testando a busca de produtos no BD', () => {
       response.status = sinon.stub().returns(response);
       response.json = sinon.stub().returns();
       request.body = Produto;
-      sinon.stub(ProductsServices, 'addProduct').resolves({ Pr });
+      sinon.stub(ProductsServices, 'addProduct').resolves({ Produto });
       
     });
 
