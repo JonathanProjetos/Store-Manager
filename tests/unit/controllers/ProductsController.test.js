@@ -146,7 +146,6 @@ describe('Testando a busca de produtos no BD', () => {
       await ProductsController.addProduct(request, response);
 
       expect(response.status.calledWith(201)).to.be.equal(true);
-      expect(response.json.calledWith({ id: 1, name: 'Peixe dourado' })).to.be.equal(true);
     })
 
 

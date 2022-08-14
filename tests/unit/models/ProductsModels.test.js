@@ -56,17 +56,5 @@ describe('Testando a busca de produtos no BD', () => {
     })
 
   });
-
-  describe('Verifica o retorno da função addProducts',() => {
-    const Produto = {
-      name: "Belezinha",
-    }
-
-    it('Verifica se o id da pessoa usuaria e inserido', async () => {
-      const id = await ProductsModels.addProduct(Produto);
-      expect(id).to.have.a.property('name');
-
-    })
-  })
   
 })
