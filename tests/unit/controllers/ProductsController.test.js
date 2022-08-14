@@ -121,31 +121,35 @@ describe('Testando a busca de produtos no BD', () => {
     });
   })
 
-  describe('Verifica o retorno da função addProducts',() => {
-    const Produto = {
-      name: "Cerveja",
-    }
+ 
+
+  describe('verifica o status da função addProducts status ok', async () => {
 
     const request = {};
     const response = {};
 
+    const produto = {
+      name: 'Peixe dourado'
+    };
+
     before(() => {
       response.status = sinon.stub().returns(response);
       response.json = sinon.stub().returns();
-      request.body = Produto;
-      sinon.stub(ProductsServices, 'addProduct').resolves({ Produto });
-      
-    });
+      request.body = { name: 'Peixe dourado' };
+    })
 
     after(() => {
-      ProductsServices.addProduct.restore()
-    });
-
-    it('Verifica se o objeto res da addProduct retorna status 201', async () => {
-        await ProductsServices.addProduct(request, response);
-      expect(response.status.calledWith(201)).to.be.equal(true);
-
+      sinon.stub(ProductsServices, 'addProduct').resolves(produto);
     })
+
+    it('verifica se o função addProducts retorna status 201', async () => {
+      await ProductsController.addProduct(request, response);
+
+      expect(response.status.calledWith(201)).to.be.equal(true);
+      expect(response.json.calledWith({ id: 1, name: 'Peixe dourado' })).to.be.equal(true);
+    })
+
+
   })
 
 })

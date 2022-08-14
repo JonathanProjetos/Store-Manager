@@ -35,9 +35,7 @@ const SalesProductsServices = {
     const check = Validate.ValidateSales(array);
    
     await Promise.all(check.map(async (v) => {
-      // console.log('entrando aqui');
       const test = await ProductsServices.getProduct(v.productId);
-      console.log('aquiassdas', test);
       if (!test) {
         const err = new Error('404|Product not found');
         throw err;

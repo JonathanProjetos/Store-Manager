@@ -9,9 +9,7 @@ const ProductsServices = {
   },
 
   getProduct: async (id) => {
-   console.log('oi');
     const result = await ProductsModels.getProduct(id); 
-    if (!result) return null;
     return result;
   },
 

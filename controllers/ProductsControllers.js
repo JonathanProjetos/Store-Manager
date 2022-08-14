@@ -10,7 +10,6 @@ const ProductsControllers = {
   addProduct: async (req, res) => {
     const name = req.body;
     const result = await ProductsServices.addProduct(name);
-    if (!result) return res.status(400);
     return res.status(201).json({ id: result.insertId, ...req.body });
   },
   

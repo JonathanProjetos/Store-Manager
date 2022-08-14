@@ -62,17 +62,9 @@ describe('Testando a busca de produtos no BD', () => {
       name: "Belezinha",
     }
 
-    before(() => {
-      sinon.stub(connection, 'execute').resolves([{insertId: 1}]);
-    });
-
-    after(() => {
-      connection.execute.restore()
-    });
-
     it('Verifica se o id da pessoa usuaria e inserido', async () => {
       const id = await ProductsModels.addProduct(Produto);
-      expect(id).to.be.equals(1)
+      expect(id).to.have.a.property('name');
 
     })
   })
