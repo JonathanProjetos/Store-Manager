@@ -33,18 +33,18 @@ const SalesProductsServices = {
 
   addSalesProducts: async (array) => {
     const check = Validate.ValidateSales(array);
-    const dados = await SalesProductsModels.addSalesProducts(check);
-    console.log('aqui', dados.itemsSold);
-
-    const validate = dados.itemsSold.map(async (v) => {
+   
+    await Promise.all(check.map(async (v) => {
+      // console.log('entrando aqui');
       const test = await ProductsServices.getProduct(v.productId);
+      console.log('aquiassdas', test);
       if (!test) {
         const err = new Error('404|Product not found');
         throw err;
       }
-      return validate;
-    });
-
+      return true;
+    }));
+    const dados = await SalesProductsModels.addSalesProducts(check);
     return dados;
   },
 
