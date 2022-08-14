@@ -9,15 +9,15 @@ const ProductsServices = {
   },
 
   getProduct: async (id) => {
-    const result = await ProductsModels.getProduct(id);
+   console.log('oi');
+    const result = await ProductsModels.getProduct(id); 
+    if (!result) return null;
     return result;
   },
 
   addProduct: async (name) => {
-    const check = Validate(name);
-    console.log(check);
+    const check = Validate.validateProducts(name);
     const result = await ProductsModels.addProduct(check);
-  
     return result;
   },
 };

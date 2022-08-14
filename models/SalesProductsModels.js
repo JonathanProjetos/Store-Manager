@@ -1,19 +1,36 @@
 const connection = require('./connection');
-const SalesServices = require('./SalesModels');
+const SalesModels = require('./SalesModels');
 
-const addSalesProducts = async (arrayBody) => {
-  console.log(arrayBody);
-  const result = await Promise.all(arrayBody.map(async ({ productId, quantity }) => {
-    const insertId = await SalesServices.InsertSales();
-    const sql = `INSERT INTO StoreManager
-      .sales_products(sale_id,product_id,quantity) VALUES(?,?,?)`;
-    await connection.execute(sql, [insertId, productId, quantity]);
-    return insertId;
-  }));
+const SalesProductsModels = {
+  addSalesProducts: async (body) => {
+    const salesId = await SalesModels.InsertSales();
+    const result = await Promise.all(body.map(async (item) => {
+      const { productId, quantity } = item;
+      const sql = `INSERT INTO StoreManager
+      .sales_products (sale_id, product_id, quantity) VALUES (?, ?, ?);`;
+      await connection.execute(sql, [
+        salesId,
+        productId,
+        quantity,
+      ]);
+      return salesId;
+    }));
+    return { id: result[0], itemsSold: body };
+  },
 
-  return ({ id: result[0], itemsSold: arrayBody });
+  allSalesProducts: async () => {
+    const sql = `
+    SELECT 
+      sp.sale_id,
+      s.date,
+      sp.product_id,
+      sp.quantity
+    FROM StoreManager.sales AS s
+    INNER JOIN StoreManager.sales_products AS sp
+    ON s.id = sp.sale_id;`;
+    const [result] = await connection.execute(sql);
+    return result;
+  },
 };
 
-module.exports = {
-  addSalesProducts,
-};
+module.exports = SalesProductsModels;

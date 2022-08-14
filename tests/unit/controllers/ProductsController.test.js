@@ -2,7 +2,6 @@ const { expect } = require('chai');
 const { describe, it } = require('mocha');
 const ProductsServices = require('../../../services/ProductsServices');
 const ProductsController = require('../../../controllers/ProductsControllers');
-const Validate = require('../../../middlewares/ProductsError')
 const sinon = require('sinon');
 
 
@@ -122,7 +121,7 @@ describe('Testando a busca de produtos no BD', () => {
     });
   })
 
-/*   describe('Verifica o retorno da função addProducts', async () => {
+  describe('Verifica o retorno da função addProducts', async () => {
     const Produto = {
       name: "Cerveja",
     }
@@ -147,8 +146,6 @@ describe('Testando a busca de produtos no BD', () => {
       expect(response.status.calledWith(201)).to.be.equal(true);
 
     })
-  }) */
-
-
+  })
 
 })
