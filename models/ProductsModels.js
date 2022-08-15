@@ -20,10 +20,15 @@ const ProductsModels = {
   },
 
   editProduct: async ({ name }, id) => {
-    console.log(name, typeof (id));
     const sql = 'UPDATE StoreManager.products SET name= ? WHERE id=?;';
     await connection.execute(sql, [name, id]);
     return ({ id, name });
+  },
+
+  deleteProduct: async (id) => {
+    const sql = 'DELETE FROM StoreManager.products WHERE id=?;';
+    const result = await connection.execute(sql, [id]);
+    return result;
   },
 
 };

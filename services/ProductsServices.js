@@ -26,6 +26,13 @@ const ProductsServices = {
     const result = await ProductsModels.editProduct(check, id);
     return result;
   },
+
+  deleteProduct: async (id) => {
+    const checkID = await ProductsModels.getProduct(id);
+    if (!checkID) throw new Error('404|Product not found');
+    const result = await ProductsModels.deleteProduct(id);
+    return result;
+  },
 };
 
 module.exports = ProductsServices;

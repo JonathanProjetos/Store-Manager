@@ -20,4 +20,8 @@ ProductsRoute.put('/:id', async (req, res) => {
   await ProductsControllers.editProduct(req, res);
 });
 
+ProductsRoute.delete('/:id', async (req, res) => {
+  await ProductsControllers.deleteProduct(req, res);
+});
+
 module.exports = ProductsRoute;
