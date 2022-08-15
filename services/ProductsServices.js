@@ -18,6 +18,14 @@ const ProductsServices = {
     const result = await ProductsModels.addProduct(check);
     return result;
   },
+
+  editProduct: async (name, id) => {
+    const check = Validate.validateProducts(name);
+    const checkID = await ProductsModels.getProduct(id); 
+    if (!checkID) throw new Error('404|Product not found');
+    const result = await ProductsModels.editProduct(check, id);
+    return result;
+  },
 };
 
 module.exports = ProductsServices;

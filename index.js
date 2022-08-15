@@ -9,8 +9,6 @@ app.use('/sales', SalesProductsRoute);
 
 app.use((err, _req, res, _next) => {
   const [code, message] = err.message.split('|');
-  // if (!code) return res.status(500).json({ message: 'deu ruim!' });
-  // if (res.status(NaN)) return res.status(500).json({ message: 'Voce ' });
   return res.status(code).json({ message });
 });
 

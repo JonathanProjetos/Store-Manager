@@ -20,6 +20,15 @@ const ProductsControllers = {
     return res.status(200).json(result);
   },
 
+  editProduct: async (req, res) => {
+    const { id } = req.params;
+    const name = req.body;
+    console.log(name);
+    const result = await ProductsServices.editProduct(name, id);
+    if (!result) return res.status(404).json({ message: 'Product not found' });
+    return res.status(200).json(result);
+  },
+
 };
 
 module.exports = ProductsControllers;

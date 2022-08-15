@@ -16,4 +16,8 @@ ProductsRoute.get('/:id', async (req, res) => {
   await ProductsControllers.getProduct(req, res);
 });
 
+ProductsRoute.put('/:id', async (req, res) => {
+  await ProductsControllers.editProduct(req, res);
+});
+
 module.exports = ProductsRoute;
