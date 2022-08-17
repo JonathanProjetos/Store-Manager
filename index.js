@@ -9,6 +9,7 @@ app.use('/sales', SalesProductsRoute);
 
 app.use((err, _req, res, _next) => {
   const [code, message] = err.message.split('|');
+  console.log(code, message);
   return res.status(code).json({ message });
 });
 

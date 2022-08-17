@@ -46,7 +46,25 @@ const SalesProductsModels = {
     }));
     return { id: result[0], itemsSold: body };
   },
-
+  
+  editSalesProduct: async (body, id) => {
+    const salesId = await SalesModels.InsertSales();
+    const result = await Promise.all(body.map(async (item) => {
+      const { productId, quantity } = item; 
+      const sql = `
+      UPDATE
+        StoreManager.sales_products
+        SET  quantity=?
+        WHERE sale_id =? AND product_id= ?;`;
+      await connection.execute(sql, [
+        quantity,
+        id,
+        productId,
+      ]);
+      return salesId;
+    }));
+    return { saleId: result[0], itemsUpdated: body };
+  },
 };
 
 module.exports = SalesProductsModels;
