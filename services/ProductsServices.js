@@ -33,6 +33,11 @@ const ProductsServices = {
     const result = await ProductsModels.deleteProduct(id);
     return result;
   },
+
+  queryProduct: async (query) => {
+    const result = await ProductsModels.queryProducts(query);
+    return result;
+  },
 };
 
 module.exports = ProductsServices;

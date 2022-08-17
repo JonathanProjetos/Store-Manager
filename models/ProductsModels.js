@@ -31,6 +31,12 @@ const ProductsModels = {
     return result;
   },
 
+  queryProducts: async (query) => {
+    const sql = 'SELECT * FROM StoreManager.products WHERE name LIKE ?';
+    const [result] = await connection.execute(sql, [`%${query}%`]);
+    return result;
+  },
+
 };
 
 module.exports = ProductsModels;
