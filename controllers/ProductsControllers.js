@@ -1,9 +1,11 @@
 const ProductsServices = require('../services/ProductsServices');
 
+const MESSAGE_ERROR = 'Product not found';
+
 const ProductsControllers = {
   allProducts: async (__req, res) => {
       const result = await ProductsServices.allProducts();
-      if (!result) return res.status(404).json({ message: 'Product not found' });
+    if (!result) return res.status(404).json({ message: MESSAGE_ERROR });
       return res.status(200).json(result);
   },
 
@@ -16,7 +18,7 @@ const ProductsControllers = {
   getProduct: async (req, res) => {
     const { id } = req.params;
     const result = await ProductsServices.getProduct(id);
-    if (!result) return res.status(404).json({ message: 'Product not found' });
+    if (!result) return res.status(404).json({ message: MESSAGE_ERROR });
     return res.status(200).json(result);
   },
 
@@ -25,21 +27,21 @@ const ProductsControllers = {
     const name = req.body;
     console.log(name);
     const result = await ProductsServices.editProduct(name, id);
-    if (!result) return res.status(404).json({ message: 'Product not found' });
+    if (!result) return res.status(404).json({ message: MESSAGE_ERROR });
     return res.status(200).json(result);
   },
   
   deleteProduct: async (req, res) => {
     const { id } = req.params;
     const result = await ProductsServices.deleteProduct(id);
-    if (!result) return res.status(404).json({ message: 'Product not found' });
+    if (!result) return res.status(404).json({ message: MESSAGE_ERROR });
     return res.status(204).end();
   },
 
   queryProduct: async (req, res) => {
     const { q } = req.query;
     const result = await ProductsServices.queryProduct(q);
-    if (!result) return res.status(404).json({ message: 'Product not found' });
+    if (!result) return res.status(404).json({ message: MESSAGE_ERROR });
     return res.status(200).json(result);
   },
 };
