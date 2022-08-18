@@ -8,22 +8,14 @@ const sinon = require('sinon');
 describe('Testando a busca de produtos no BD', () => {
   describe('Verifica o retorno da função allSalesProducts', () => {
 
+    const returnArray = [{
+      "saleId": 1,
+      "date": "2022-08-18T17:37:55.000Z",
+      "productId": 1,
+      "quantity": 5
+    }];
+  
     before(() => {
-      const returnArray = [
-        {
-          "id": 3,
-          "itemsSold": [
-            {
-              "productId": 1,
-              "quantity": 1
-            },
-            {
-              "productId": 2,
-              "quantity": 5
-            }
-          ]
-        }
-      ];
       sinon.stub(connection, 'execute').resolves(returnArray)
     });
 

@@ -25,7 +25,7 @@ const ProductsControllers = {
   editProduct: async (req, res) => {
     const { id } = req.params;
     const name = req.body;
-    console.log(name);
+    console.log('edit', name, id);
     const result = await ProductsServices.editProduct(name, id);
     if (!result) return res.status(404).json({ message: MESSAGE_ERROR });
     return res.status(200).json(result);
@@ -34,15 +34,14 @@ const ProductsControllers = {
   deleteProduct: async (req, res) => {
     const { id } = req.params;
     const result = await ProductsServices.deleteProduct(id);
-    console.log(result);
-    if (result.affectedRows === 0) return res.status(404).json({ message: MESSAGE_ERROR });
+    if (!result) return res.status(404).json({ message: MESSAGE_ERROR });
     return res.status(204).end();
   },
 
   queryProduct: async (req, res) => {
     const { q } = req.query;
     const result = await ProductsServices.queryProduct(q);
-    if (!result) return res.status(404).json({ message: MESSAGE_ERROR });
+    console.log(result);
     return res.status(200).json(result);
   },
 };

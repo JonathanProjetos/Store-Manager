@@ -174,7 +174,8 @@ describe('Testando a busca de produtos no BD', () => {
       expect(response.status.calledWith(200)).to.be.equal(true);
     })
 
-  })
+  });
+
 
   describe('Verifica o status da função deleteProducts status ok', () => {
     const request = {};
@@ -202,5 +203,90 @@ describe('Testando a busca de produtos no BD', () => {
     })
 
   })
+
+  describe('Verifica o status da função deleteProducts status ok', () => {
+    const request = {};
+    const response = {};
+
+    const produto = undefined
+    const message = { message: "Product not found" }
+
+    before(() => {
+      response.status = sinon.stub().returns(response);
+      response.json = sinon.stub().returns();
+      request.params = { id: 2 };
+      sinon.stub(ProductsServices, 'deleteProduct').resolves(produto);
+    })
+
+    after(() => {
+      ProductsServices.deleteProduct.restore()
+    })
+
+    it('verifica se o função deleteProducts retorna status 404', async () => {
+      await ProductsController.deleteProduct(request, response);
+      expect(response.status.calledWith(404)).to.be.equal(true)
+      expect(response.json.calledWith(message)).to.be.equal(true);
+    })
+
+  })
+
+  describe('Verifica o status da função editProducts status ok', () => {
+    const request = {};
+    const response = {};
+
+    const produto = {
+      name: 'jhon'
+    }
+
+    before(() => {
+      response.status = sinon.stub().returns(response);
+      response.json = sinon.stub().returns();
+      request.params = { id: 1 };
+      request.body = produto;
+      sinon.stub(ProductsServices, 'editProduct').resolves(produto);
+    })
+
+    after(() => {
+      ProductsServices.editProduct.restore()
+    })
+
+    it('verifica se o função editProducts retorna status 200', async () => {
+      await ProductsController.editProduct(request, response);
+      expect(response.status.calledWith(200)).to.be.equal(true);
+    })
+
+    it('verifica se o função editProducts retorna json com o dado atualizado', async () => {
+      await ProductsController.editProduct(request, response);
+      expect(response.json.calledWith(produto)).to.be.equal(true);
+    })
+
+  })
+
+  describe('Verifica o verifica o retorno da função editProducts quando não da certo', () => {
+    const request = {};
+    const response = {};
+
+    const produto = undefined
+    const message = { message: "Product not found" }
+
+    before(() => {
+      response.status = sinon.stub().returns(response);
+      response.json = sinon.stub().returns();
+      request.params = { id: 99999 };
+      request.body = produto;
+      sinon.stub(ProductsServices, 'editProduct').resolves(produto);
+    })
+
+    after(() => {
+      ProductsServices.editProduct.restore()
+    })
+
+    it('verifica se o função se a função retorna product not found', async () => {
+     const result = await ProductsController.editProduct(request, response);
+      expect(response.json.calledWith(message)).to.be.equal(true);
+    })
+
+  })
+
 
 })
