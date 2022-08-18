@@ -16,8 +16,14 @@ const SalesProductsControllers = {
 
   addSalesProducts: async (req, res) => {
     const produtos = req.body;
-    const result1 = await SalesProductsServices.addSalesProducts(produtos);
-    return res.status(201).json(result1);
+    const result = await SalesProductsServices.addSalesProducts(produtos);
+    return res.status(201).json(result);
+  },
+
+  deleteSalesProduct: async (req, res) => {
+    const { id } = req.params;
+    await SalesProductsServices.deleteSalesProduct(id);
+    return res.status(204).end();
   },
 
   editSalesProduct: async (req, res) => {

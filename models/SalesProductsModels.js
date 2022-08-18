@@ -46,6 +46,12 @@ const SalesProductsModels = {
     }));
     return { id: result[0], itemsSold: body };
   },
+
+  deleteSalesProduct: async (id) => {
+    const sql = 'DELETE FROM StoreManager.sales_products WHERE sale_id= ?;';
+    const result = await connection.execute(sql, [id]);
+    return result;
+  },
   
   editSalesProduct: async (body, id) => {
     const salesId = await SalesModels.InsertSales();

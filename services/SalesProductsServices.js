@@ -35,14 +35,25 @@ const SalesProductsServices = {
     const check = Validate.ValidateSales(array);
 
     await Promise.all(check.map(async (v) => {
-      const test = await ProductsServices.getProduct(v.productId);
-      if (!test) {
+      const checkId = await ProductsServices.getProduct(v.productId);
+      if (!checkId) {
         const err = new Error('404|Product not found');
         throw err;
       }
       return true;
     }));
     const dados = await SalesProductsModels.addSalesProducts(check);
+    return dados;
+  },
+
+  deleteSalesProduct: async (id) => {
+    const SalesProductsGet = await SalesProductsModels.getSalesProduct(id);
+    if (SalesProductsGet.length === 0) {
+      const err = new Error('404|Sale not found');
+      throw err;
+    }
+
+    const dados = await SalesProductsModels.deleteSalesProduct(id);
     return dados;
   },
 

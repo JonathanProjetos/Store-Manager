@@ -15,6 +15,10 @@ SalesProducstRouter.get('/:id', async (req, res) => {
   await SalesProductsController.getSalesProduct(req, res);
 });
 
+SalesProducstRouter.delete('/:id', async (req, res) => {
+  await SalesProductsController.deleteSalesProduct(req, res);
+ });
+
 SalesProducstRouter.put('/:id', async (req, res) => { 
   await SalesProductsController.editSalesProduct(req, res);
 });
