@@ -34,7 +34,8 @@ const ProductsControllers = {
   deleteProduct: async (req, res) => {
     const { id } = req.params;
     const result = await ProductsServices.deleteProduct(id);
-    if (!result) return res.status(404).json({ message: MESSAGE_ERROR });
+    console.log(result);
+    if (result.affectedRows === 0) return res.status(404).json({ message: MESSAGE_ERROR });
     return res.status(204).end();
   },
 

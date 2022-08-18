@@ -7,9 +7,17 @@ const sinon = require('sinon');
 
 describe('Verifica o tipo de dado retornado', () => {
 
-  const resultado = 1;
+  const returnObj = [{
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 3,
+    info: '',
+    serverStatus: 2,
+    warningStatus: 0
+  }];
+
   before(() => {
-    sinon.stub(connection, 'execute').resolves(resultado)
+    sinon.stub(connection, 'execute').resolves(returnObj)
   });
 
   after(() => {
@@ -17,9 +25,6 @@ describe('Verifica o tipo de dado retornado', () => {
   });
 
   it('verifica se o retorno da função e um objeto', async () => {
-
-    sinon.stub(SalesModel, 'InsertSales').resolves(resultado);
-
     const result = await SalesModel.InsertSales();
 
     expect(result).to.be.a('number');

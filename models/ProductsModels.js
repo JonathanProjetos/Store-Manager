@@ -27,7 +27,7 @@ const ProductsModels = {
 
   deleteProduct: async (id) => {
     const sql = 'DELETE FROM StoreManager.products WHERE id=?;';
-    const result = await connection.execute(sql, [id]);
+    const [result] = await connection.execute(sql, [id]);
     return result;
   },
 

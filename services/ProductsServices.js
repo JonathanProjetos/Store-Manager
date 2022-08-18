@@ -31,6 +31,7 @@ const ProductsServices = {
     const checkID = await ProductsModels.getProduct(id);
     if (!checkID) throw new Error('404|Product not found');
     const result = await ProductsModels.deleteProduct(id);
+    console.log('service', result);
     return result;
   },
 

@@ -71,7 +71,7 @@ describe('Testando a busca de produtos no BD', () => {
 
     before(() => {
       response.status = sinon.stub().returns(response);
-      request.params = { id: 5 };
+      request.params = { id: 1 };
       response.json = sinon.stub().returns();
       sinon.stub(ProductsServices, 'getProduct').resolves([{ id: 1, name: 'jhon' }]);
     });
@@ -123,7 +123,7 @@ describe('Testando a busca de produtos no BD', () => {
 
  
 
-  describe('verifica o status da função addProducts status ok', async () => {
+  describe('verifica o status da função addProducts status ok', () => {
 
     const request = {};
     const response = {};
@@ -148,6 +148,58 @@ describe('Testando a busca de produtos no BD', () => {
       expect(response.status.calledWith(201)).to.be.equal(true);
     })
 
+  })
+
+  describe('Verifica o status da função queryProducts status ok', () => {
+    const request = {};
+    const response = {};
+
+    const produto = {
+      name: 'Peixe dourado'
+    };
+
+    before(() => {
+      response.status = sinon.stub().returns(response);
+      response.json = sinon.stub().returns();
+      request.query = { name: "Martelo de Thor" };
+    })
+
+    after(() => {
+      sinon.stub(ProductsServices, 'queryProduct').resolves(produto);
+    })
+
+    it('verifica se o função queryProducts retorna status 200', async () => {
+      await ProductsController.queryProduct(request, response);
+
+      expect(response.status.calledWith(200)).to.be.equal(true);
+    })
+
+  })
+
+  describe('Verifica o status da função deleteProducts status ok', () => {
+    const request = {};
+    const response = {};
+
+    const produto = {
+      affectedRows: 1
+    }
+
+    before(() => {
+      response.status = sinon.stub().returns(response);
+      response.end = sinon.stub().returns();
+      request.params = { id: 2 };
+      sinon.stub(ProductsServices, 'deleteProduct').resolves(produto);
+    })
+
+    after(() => {
+      ProductsServices.deleteProduct.restore()
+    })
+
+    it('verifica se o função deleteProducts retorna status 204', async () => {
+      const test = await ProductsController.deleteProduct(request, response);
+      console.log('controller', test);
+      expect(response.status.calledWith(204)).to.be.equal(true);
+    })
 
   })
 
