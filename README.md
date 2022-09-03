@@ -223,7 +223,6 @@ docker-compose up -d
 ```
 ## Rodando a aplicação
 ```
-bash
 cd Store-Manager/
 npm run debug
 ```
@@ -237,6 +236,6 @@ Caso queira roda a aplicação via docker deverá ter o docker instalado no disp
 
 > Test
 ```bash
-cd src/ 
+cd Store-Manager/ 
 npm test
 ``` 
