@@ -130,11 +130,11 @@ A rota responde, caso bem sucedido um objeto neste formato:
 	"id": 3,
     "itemsSold": [
 	  {
-    	 "productId": 1,
+    	     "productId": 1,
 	     "quantity": 1
 	  },
 	  {
-		 "productId": 1,
+	     "productId": 1,
 	     "quantity": 2
 	  }
     	]
@@ -179,11 +179,11 @@ O verbo put espera rebeber um id de uma venda existente no banco e um body com o
 	"id": 3,
     "itemsSold": [
 	  {
-    	 "productId": 1,
+    	     "productId": 1,
 	     "quantity": 1
 	  },
 	  {
-		 "productId": 1,
+	     "productId": 1,
 	     "quantity": 2
 	  }
     	]
@@ -194,7 +194,7 @@ O verbo put espera rebeber um id de uma venda existente no banco e um body com o
 ##### Esperado
 
 ```
-A rota espera receber um id existente no banco para a exclusão.
+A rota espera receber um id para exclusão de uma venda caso ela exista.
   
 ```
 
@@ -207,9 +207,9 @@ A rota espera receber um id existente no banco para a exclusão.
 
 ## Instalando Dependências
 
-> Docker
+> Node
 ```bash
-cd  
+cd 
 npm install
 ``` 
 ## Aviso Importante 
