@@ -124,8 +124,9 @@ A rota post espera um body com este formato para cadastrar uma venda
   ]
   
 a rota responde, caso bem sucedido um objeto neste formato:
+
  json
-    {
+     {
 	"id": 3,
     "itemsSold": [
 	  {
@@ -136,9 +137,59 @@ a rota responde, caso bem sucedido um objeto neste formato:
 		 "productId": 1,
 	     "quantity": 2
 	  }
-     ]
-    }
+    	]
+      }
 ```
+#### Verbo Get : http://localhost:3000/sales/1
+
+##### Esperado
+
+```
+A rota espera receber um id para a busca de todas as vendas vinculado a este id.
+   json
+      [
+	{
+  	   "date": "2022-08-14T10:08:20.000Z",
+	   "productId": 1,
+	   "quantity": 5
+	}
+      ]
+
+```
+#### Verbo Put : http://localhost:3000/sales/1
+
+##### Esperado
+```
+O verbo put espera rebeber um id de uma venda existente no banco e um body com os valores para edição de um produto existente no banco.
+ json     
+  [
+    {
+      "productId": 1,
+      "quantity":10
+    },
+    {
+      "productId": 2,
+      "quantity":50
+    }
+  ]
+  
+ a rota responde, caso bem sucedido um objeto neste formato:
+ 
+      {
+	"id": 3,
+    "itemsSold": [
+	  {
+    	 "productId": 1,
+	     "quantity": 1
+	  },
+	  {
+		 "productId": 1,
+	     "quantity": 2
+	  }
+    	]
+      }
+```
+
 
 
 ## Técnologias usadas
