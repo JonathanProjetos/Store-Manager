@@ -209,11 +209,24 @@ A rota espera receber um id para exclusão de uma venda caso ela exista.
 
 > Node
 ```bash
-cd 
+cd Store-Manager/
 npm install
 ``` 
+> Docker
+```
+cd Store-Manager/
+npm install
+docker-compose up -d
+```
+## Rodando a aplicação
+```
+bash
+cd Store-Manager/
+npm run debug
+```
+
 ## Aviso Importante 
-Para roda a aplicação e necessário esta com o docker instalado  no dispositivo, caso não esteja instalado você pode encontra como instalar neste [link](https://docs.docker.com/engine/install/ubuntu/) site oficial 
+Caso queira roda a aplicação via docker deverá ter o docker instalado no dispositivo, caso não esteja instalado você pode encontra como instalar neste [link](https://docs.docker.com/engine/install/ubuntu/) site oficial 
 
 ## Executando Testes
 
@@ -224,23 +237,3 @@ Para roda a aplicação e necessário esta com o docker instalado  no dispositiv
 cd src/ 
 npm test
 ``` 
-
-
-
-
-# 🚧 README em construção 🚧
-
-<!-- Olá, Tryber!
-
-Esse é apenas um arquivo inicial para o README do seu projeto.
-
-É essencial que você preencha esse documento por conta própria, ok?
-
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
-
--->
