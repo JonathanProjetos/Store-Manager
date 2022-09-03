@@ -3,11 +3,11 @@
 # Contexto
 API RESTful utilizando arquitetura MSC. A pessoa usuária, independente de cadastro, deve conseguir, adicionar, ler, deletar e atualizar produtos. Enviar vendas para o sistema e essas vendas devem validar se o produto em questão existe, também é possível ler, deletar e atualizar vendas;
 
-## Detalhes de endereços Products
+## Detalhes de endereços da rota Products
 
->Verbo GET : http://localhost:3000/products
+#### Verbo GET : http://localhost:3000/products
 
-### Esperado
+##### Esperado
     ```json
       [
         {
@@ -21,9 +21,10 @@ API RESTful utilizando arquitetura MSC. A pessoa usuária, independente de cadas
         /* ... */
       ]
     ```
->Verbo Post : http://localhost:3000/products
+    
+#### Verbo Post : http://localhost:3000/products
 
-### Esperado
+##### Esperado
     ```json
     
         {
@@ -31,17 +32,19 @@ API RESTful utilizando arquitetura MSC. A pessoa usuária, independente de cadas
         }
  
     ```
->Verbo Get : http://localhost:3000/products/search?q="palavra-Chave-aqui"
+    
+#### Verbo Get : http://localhost:3000/products/search?q="palavra-Chave-aqui"
 
-### Esperado
+##### Esperado
 ```
 A rota espera fragmentos de palavras ou a palavra que vincule com o nome de algum produto existente no banco, caso compatível ele retornará o dado do banco.
 
 ```
 
->Verbo Get : http://localhost:3000/products/2
 
-### Esperado
+#### Verbo Get : http://localhost:3000/products/2
+
+##### Esperado
 
 ```
 A rota espera receber id para a busca de um produto vinculado a este id.
@@ -53,6 +56,26 @@ A rota espera receber id para a busca de um produto vinculado a este id.
 
 ```
 
+#### Verbo Put : http://localhost:3000/products/2
+
+##### Esperado
+```
+O verbo put espera rebeber um id do produto existente no banco e um body, com os valores para edição de um produto existente no banco.
+    json
+        
+       {
+          "name": "Smartphone",
+       }
+
+```
+
+#### Verbo Delete : http://localhost:3000/products/2
+
+##### Esperado
+```
+A rota espera receber um id que seja compatível com um id de um produto existente no banco.
+
+```
 ## Técnologias usadas
 
 Back-end:
