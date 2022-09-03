@@ -204,9 +204,9 @@ A rota espera receber um id para exclusão de uma venda caso ela exista.
 
 > Drive : Mysql
 
-> framework utilizado: Express.
+> Framework utilizado: Express.
 
-> libs: Joi, nodemon, express-async-errors, mysql2, eslint, sinon, mocha, chai, dotenv, body-parser
+> Libs: Joi, nodemon, express-async-errors, mysql2, eslint, sinon, mocha, chai, dotenv, body-parser
 
 ## Instalando Dependências
 
