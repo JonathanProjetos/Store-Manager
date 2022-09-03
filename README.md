@@ -8,7 +8,11 @@ API RESTful utilizando arquitetura MSC. A pessoa usuária, independente de cadas
 #### Verbo GET : http://localhost:3000/products
 
 ##### Esperado
-    ```json
+
+ ```
+A rota traz todos os produtos cadastrados no banco.
+
+    json
       [
         {
           "id": 1,
@@ -20,7 +24,7 @@ API RESTful utilizando arquitetura MSC. A pessoa usuária, independente de cadas
         }
         /* ... */
       ]
-    ```
+   ```
     
 #### Verbo Post : http://localhost:3000/products
 
@@ -76,6 +80,67 @@ O verbo put espera rebeber um id do produto existente no banco e um body, com os
 A rota espera receber um id que seja compatível com um id de um produto existente no banco.
 
 ```
+## Detalhes de endereços da rota Sales
+
+#### Verbo GET : http://localhost:3000/sales
+
+##### Esperado
+```
+A rota traz todas as vendas cadastrados no banco.
+ json
+  [
+	{
+		"saleId": 1,
+		"date": "2022-08-14T10:08:20.000Z",
+		"productId": 1,
+		"quantity": 5
+	},
+	{
+		"saleId": 2,
+		"date": "2022-08-14T10:08:20.000Z",
+		"productId": 3,
+		"quantity": 15
+	}
+    */ ...../*
+  ]
+
+```
+
+#### verbo Post : http://localhost:3000/sales
+
+##### Esperado
+```
+A rota post espera um body com este formato para cadastrar uma venda 
+ json
+  [
+    {
+      "productId": 1,
+      "quantity":1
+    },
+    {
+      "productId": 1,
+      "quantity":2
+    }
+  ]
+  
+a rota responde, caso bem sucedido um objeto neste formato:
+ json
+    {
+	"id": 3,
+    "itemsSold": [
+	  {
+    	 "productId": 1,
+	     "quantity": 1
+	  },
+	  {
+		 "productId": 1,
+	     "quantity": 2
+	  }
+     ]
+    }
+```
+
+
 ## Técnologias usadas
 
 Back-end:
