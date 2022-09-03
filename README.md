@@ -89,18 +89,18 @@ A rota espera receber um id que seja compatível com um id de um produto existen
 A rota traz todas as vendas cadastrados no banco.
  json
   [
-	{
-		"saleId": 1,
-		"date": "2022-08-14T10:08:20.000Z",
-		"productId": 1,
-		"quantity": 5
-	},
-	{
-		"saleId": 2,
-		"date": "2022-08-14T10:08:20.000Z",
-		"productId": 3,
-		"quantity": 15
-	}
+     {
+	"saleId": 1,
+	"date": "2022-08-14T10:08:20.000Z",
+	"productId": 1,
+	"quantity": 5
+     },
+     {
+	"saleId": 2,
+	"date": "2022-08-14T10:08:20.000Z",
+	"productId": 3,
+	"quantity": 15
+     }
     */ ...../*
   ]
 
@@ -123,7 +123,7 @@ A rota post espera um body com este formato para cadastrar uma venda
     }
   ]
   
-a rota responde, caso bem sucedido um objeto neste formato:
+A rota responde, caso bem sucedido um objeto neste formato:
 
  json
      {
@@ -173,7 +173,7 @@ O verbo put espera rebeber um id de uma venda existente no banco e um body com o
     }
   ]
   
- a rota responde, caso bem sucedido um objeto neste formato:
+ A rota responde, caso bem sucedido um objeto neste formato:
  
       {
 	"id": 3,
@@ -189,19 +189,27 @@ O verbo put espera rebeber um id de uma venda existente no banco e um body com o
     	]
       }
 ```
+#### Verbo Delete : http://localhost:3000/sales/1
 
+##### Esperado
 
+```
+A rota espera receber um id existente no banco para a exclusão.
+  
+```
 
 ## Técnologias usadas
 
-Back-end:
-> Desenvolvido usando: Docker, Docker-compose
+> Desenvolvido em nodejs.
+> Drive : Mysql
+> framework utilizado: Express.
+> libs: Joi, nodemon, express-async-errors, mysql2, eslint, sinon, mocha, chai, dotenv, body-parser
 
 ## Instalando Dependências
 
 > Docker
 ```bash
-cd api/ 
+cd  
 npm install
 ``` 
 ## Aviso Importante 
