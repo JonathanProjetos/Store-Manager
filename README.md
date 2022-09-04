@@ -3,6 +3,13 @@
 # Contexto
 API RESTful utilizando arquitetura MSC. A pessoa usuária, independente de cadastro, deve conseguir, adicionar, ler, deletar e atualizar produtos. Enviar vendas para o sistema e essas vendas devem validar se o produto em questão existe, também é possível ler, deletar e atualizar vendas;
 
+## Importante:
+
+- Para consumo da aplicação será nescessario o uso de um software  de envio de requisições REST como:
+- [Insomia](https://insomnia.rest/)
+- [Postman](https://www.postman.com/)
+- [Httpie](https://httpie.io/)
+
 ## Detalhes de endereços da rota Products
 
 #### Verbo GET : http://localhost:3000/products
