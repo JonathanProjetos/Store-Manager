@@ -58,7 +58,7 @@ A rota espera fragmentos de palavras ou a palavra que vincule com o nome de algu
 ##### Esperado
 
 ```
-A rota espera receber id para a busca de um produto vinculado a este id.
+A rota espera receber um id para a busca do produto vinculado a este id.
    json
        {
           "id": 2,
@@ -71,7 +71,7 @@ A rota espera receber id para a busca de um produto vinculado a este id.
 
 ##### Esperado
 ```
-O verbo put espera rebeber um id do produto existente no banco e um body, com os valores para edição de um produto existente no banco.
+O verbo put espera rebeber um id de um produto existente no banco e um body. Os dados serão utilizados para atualizar o produto cadastrado no banco.
     json
         
        {
@@ -84,7 +84,7 @@ O verbo put espera rebeber um id do produto existente no banco e um body, com os
 
 ##### Esperado
 ```
-A rota espera receber um id que seja compatível com um id de um produto existente no banco.
+A rota espera receber um id.
 
 ```
 ## Detalhes de endereços da rota Sales
@@ -167,7 +167,7 @@ A rota espera receber um id para a busca de todas as vendas vinculado a este id.
 
 ##### Esperado
 ```
-O verbo put espera rebeber um id de uma venda existente no banco e um body com os valores para edição de um produto existente no banco.
+O verbo put espera rebeber um id de um produto existente no banco e um body. Os dados serão utilizados para atualizar o produto cadastrado no banco.
  json     
   [
     {
