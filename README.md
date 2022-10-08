@@ -5,12 +5,12 @@ API RESTful utilizando arquitetura MSC. A pessoa usuária, independente de cadas
 
 ## Importante:
 
-- Para consumo da aplicação será nescessario o uso de um software  de envio de requisições REST como:
+- Para consumo da aplicação, será necessário o uso de um ‘software’ de envio de requisições REST como:
 - [Insomia](https://insomnia.rest/)
 - [Postman](https://www.postman.com/)
 - [Httpie](https://httpie.io/)
 
-## Detalhes de endereços da rota Products
+## Mais detalhes sobre a rota Products
 
 #### Verbo GET : /products
 
@@ -87,7 +87,7 @@ O verbo put espera rebeber um id de um produto existente no banco e um body. Os 
 A rota espera receber um id.
 
 ```
-## Detalhes de endereços da rota Sales
+## Mais detalhes sobre a rota Sales
 
 #### Verbo GET : /sales
 
