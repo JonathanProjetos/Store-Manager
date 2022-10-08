@@ -12,7 +12,7 @@ API RESTful utilizando arquitetura MSC. A pessoa usuária, independente de cadas
 
 ## Detalhes de endereços da rota Products
 
-#### Verbo GET : http://localhost:3000/products
+#### Verbo GET : /products
 
 ##### Esperado
 
@@ -33,7 +33,7 @@ A rota traz todos os produtos cadastrados no banco.
       ]
    ```
     
-#### Verbo Post : http://localhost:3000/products
+#### Verbo Post : /products
 
 ##### Esperado
     ```json
@@ -44,7 +44,7 @@ A rota traz todos os produtos cadastrados no banco.
  
     ```
     
-#### Verbo Get : http://localhost:3000/products/search?q="palavra-Chave-aqui"
+#### Verbo Get : /products/search?q="palavra-Chave-aqui"
 
 ##### Esperado
 ```
@@ -53,7 +53,7 @@ A rota espera fragmentos de palavras ou a palavra que vincule com o nome de algu
 ```
 
 
-#### Verbo Get : http://localhost:3000/products/2
+#### Verbo Get : /products/:id
 
 ##### Esperado
 
@@ -67,7 +67,7 @@ A rota espera receber id para a busca de um produto vinculado a este id.
 
 ```
 
-#### Verbo Put : http://localhost:3000/products/2
+#### Verbo Put : /products/:id
 
 ##### Esperado
 ```
@@ -80,7 +80,7 @@ O verbo put espera rebeber um id do produto existente no banco e um body, com os
 
 ```
 
-#### Verbo Delete : http://localhost:3000/products/2
+#### Verbo Delete : /products/:id
 
 ##### Esperado
 ```
@@ -89,7 +89,7 @@ A rota espera receber um id que seja compatível com um id de um produto existen
 ```
 ## Detalhes de endereços da rota Sales
 
-#### Verbo GET : http://localhost:3000/sales
+#### Verbo GET : /sales
 
 ##### Esperado
 ```
@@ -113,7 +113,7 @@ A rota traz todas as vendas cadastrados no banco.
 
 ```
 
-#### verbo Post : http://localhost:3000/sales
+#### verbo Post : /sales
 
 ##### Esperado
 ```
@@ -147,7 +147,7 @@ A rota responde, caso bem sucedido um objeto neste formato:
     	]
       }
 ```
-#### Verbo Get : http://localhost:3000/sales/1
+#### Verbo Get : /sales/:id
 
 ##### Esperado
 
@@ -163,7 +163,7 @@ A rota espera receber um id para a busca de todas as vendas vinculado a este id.
       ]
 
 ```
-#### Verbo Put : http://localhost:3000/sales/1
+#### Verbo Put : /sales/:id
 
 ##### Esperado
 ```
@@ -196,7 +196,7 @@ O verbo put espera rebeber um id de uma venda existente no banco e um body com o
     	]
       }
 ```
-#### Verbo Delete : http://localhost:3000/sales/1
+#### Verbo Delete : /sales/:id
 
 ##### Esperado
 
